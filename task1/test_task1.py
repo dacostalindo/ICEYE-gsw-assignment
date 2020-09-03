@@ -18,7 +18,6 @@ class TestTask1(unittest.TestCase):
         change_dictionary = return_coins(coffee_price, eur_inserted)
         change_experimental = 0
 
-
         for key in change_dictionary:
             change_experimental += key * change_dictionary[key]
 
