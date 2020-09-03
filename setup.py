@@ -12,4 +12,7 @@ setup(
     url = 'https://github.com/dacostalindo/ICEYE_gsw_assignment',
     packages = setuptools.find_packages(),
     python_requires='>=3.6',
+    install_requires = [
+        'python-crontab'
+    ]
 )
