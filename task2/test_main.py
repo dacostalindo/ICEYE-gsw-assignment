@@ -2,7 +2,6 @@
 
 import unittest
 import xkcd as xkcd_class
-<<<<<<< HEAD
 import random
 
 class TestXKCD(unittest.TestCase):
@@ -45,15 +44,6 @@ class TestXKCD(unittest.TestCase):
     #         xkcd_object = xkcd_class.XKCD_SERVICE(comic_num, debug)
     #         xkcd_object.save_image()
 
-=======
-
-class TestXKCD(unittest.TestCase):
-
-    def test(self):
-        xkcd_object = xkcd_class.XKCD_SERVICE(2355)
-        json = xkcd_object.get_JSON()
-        xkcd_object.save_images()
->>>>>>> f329c70682e57992e43b827a9e8a0a1ce52b06a2
 
 
 
