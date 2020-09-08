@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 import urllib.request
 import json
 import random
@@ -9,7 +8,10 @@ import os
 class  XKCD_SERVICE(object) :
 
     def __init__(self, max_comics):
-        self.comic_max = max_comics
+        if max_comics > 2356:
+            raise ValueError("Max comics should be below or equal to 2356 - the max number of comics available on the website! - and above 0 - the min on the website!")
+        else:
+            self.comic_max = max_comics
 
 
     def save_comic(self):
@@ -24,12 +26,8 @@ class  XKCD_SERVICE(object) :
         else:
 
             last_comic_added = comics_list[-1]
-            # print("Last comic added: {} and new comic to be added: {}".format(last_comic_added, new_comic_name))
             while last_comic_added == new_comic_name:
-                # print("We have got equal consecutive photos!")
                 new_comic_url, new_comic_name = self._get_JSON()
-                # print("New comic inside while loop: {}:".format(new_comic_name))
-
 
             if len(comics_list) == 1:
                 urllib.request.urlretrieve(new_comic_url, new_comic_name)
@@ -40,7 +38,6 @@ class  XKCD_SERVICE(object) :
                 urllib.request.urlretrieve(new_comic_url, new_comic_name)
 
 
-        # print("Just removed: '{}' and stored the image: '{}'".format(comic_removed, new_comic_name))
 
 
     def _get_JSON(self):
@@ -50,6 +47,8 @@ class  XKCD_SERVICE(object) :
             new_comic_url = data['img']
             new_comic_name = data['title']+'.jpg'
         return new_comic_url, new_comic_name
+
+
 
 
     def _get_comiclist(self):
@@ -63,7 +62,6 @@ class  XKCD_SERVICE(object) :
 
 
     def _get_random_num_comic(self):
-
         comic_num = random.randint(1, self.comic_max)
         return comic_num
 
