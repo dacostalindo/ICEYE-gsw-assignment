@@ -58,10 +58,7 @@
                 </li>
               {% endfor %}
             </ul>
-
-
           </div>
-
 
           <div class="card-body">
             <div class="container">
@@ -74,16 +71,31 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h4 class="modal-title" >That's all folks</h4>
+                      <h4 class="modal-title" >Want to save the world?</h4>
+                    </div>
+                    <div class="row">
+                      <div class="col-4">
+                        <div class="list-group list-group-flush" id="list-tab" role="tablist">
+                          <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">When You Saved the World?</a>
+                          <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">How You Saved the World?</a>
+                          <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Who You Thank For Being So Awesome?</a>
+
+                        </div>
+                      </div>
+                      <div class="col-8">
+                        <div class="tab-content" id="nav-tabContent">
+                          <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">...</div>
+                          <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
+                          <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
+                        </div>
+                      </div>
                     </div>
 
-                    <input type="radio" 
-<!-- ----- -->
+
                     <!-- <form action="{% url 'insert_savior' %}" method="post" autocomplete="off">
                       {% csrf_token %}
-                      <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="customCheck1" name="congratulations">
-                        <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+                      <div class= "input-group">
+                        <input type="text" class="form-control" name="salute">
                         <div class="input-group-append text-info">
                           <span class ="input-group-text bg-white py-0">
                             <button type="submit" class="btn btn-sm text-info">
@@ -93,19 +105,23 @@
                       </div>
                     </form> -->
 
-<!--  -->
-                    <!-- <form action="{% url  'insert_saveworld_item' %}" method="post" autocomplete="off">
+                    <form action="{% url 'insert_savior' %}" method="post" autocomplete="off">
                       {% csrf_token %}
                       <div class= "input-group">
-                        <input type="text" class="form-control" name="content">
-                        <div class="input-group-append text-info">
-                          <span class ="input-group-text bg-white py-0">
-                            <button type="submit" class="btn btn-sm text-info">
-                              <i class=" fa fa-plus-circle fa-lg"></i>
-                          </span>
-                        </div>
+                        <input type="text" list="heroes" name="salute"/>
+                          <datalist id="heroes">
+                            <option>When You Saved the World?</option>
+                            <option>How You Saved the World?</option>
+                            <option>Who You Thank For Being So Awesome?</option>
+                          </datalist>
+                          <div class="input-group-append text-info">
+                            <span class ="input-group-text bg-white py-0">
+                              <button type="submit" class="btn btn-sm text-info">
+                                <i class=" fa fa-plus-circle fa-lg"></i>
+                            </span>
+                          </div>
                       </div>
-                    </form> -->
+                    </form>
 
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -114,8 +130,8 @@
                 </div>
               </div>
             </div>
-        </div>
 
+          </div>
       </div>
     </div>
   </div>
