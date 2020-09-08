@@ -15,18 +15,18 @@ def return_coins(coffee_price, eur_inserted):
         else:
 
             change_dict = {
-                2.0   : 0,
-                1.0   : 0,
-                0.5   : 0,
-                0.2   : 0,
-                0.1   : 0,
-                0.05  : 0,
-                0.02  : 0,
-                0.01  : 0
+                200  : 0,
+                100  : 0,
+                50  : 0,
+                20  : 0,
+                10  : 0,
+                05  : 0,
+                02  : 0,
+                01  : 0
             }
 
             change = eur_inserted -  coffee_price
-            coins = [2.0, 1.0, 0.5, 0.2, 0.1, 0.05, 0.02, 0.01]
+            coins = [200, 100, 50, 20, 10, 5, 2, 1]
 
             for coin in coins:
                 if change / coin >= 1:
@@ -70,7 +70,7 @@ def return_coins(coffee_price, eur_inserted):
 
 
             if change > 0 :
-                change_dict[0.01] = 1.0
+                change_dict[1] = 1
 
 
 
