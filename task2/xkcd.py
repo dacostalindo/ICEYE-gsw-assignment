@@ -24,11 +24,11 @@ class  XKCD_SERVICE(object) :
         else:
 
             last_comic_added = comics_list[-1]
-            print("Last comic added: {} and new comic to be added: {}".format(last_comic_added, new_comic_name))
+            # print("Last comic added: {} and new comic to be added: {}".format(last_comic_added, new_comic_name))
             while last_comic_added == new_comic_name:
-                print("We have got equal consecutive photos!")
+                # print("We have got equal consecutive photos!")
                 new_comic_url, new_comic_name = self._get_JSON()
-                print("New comic inside while loop: {}:".format(new_comic_name))
+                # print("New comic inside while loop: {}:".format(new_comic_name))
 
 
             if len(comics_list) == 1:
@@ -40,7 +40,7 @@ class  XKCD_SERVICE(object) :
                 urllib.request.urlretrieve(new_comic_url, new_comic_name)
 
 
-        print("Just removed: '{}' and stored the image: '{}'".format(comic_removed, new_comic_name))
+        # print("Just removed: '{}' and stored the image: '{}'".format(comic_removed, new_comic_name))
 
 
     def _get_JSON(self):
