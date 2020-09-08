@@ -1,12 +1,131 @@
-<h1> HELLLLOOOOO </h1>
+{% load static %}
 
-<!-- <ul>
-  <li> A </li>
-  <li> B </li>
-</ul> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> Save the World </title>
 
-<ul>
-  {% for save_item in all_items %}
-  <li>{{ save_item.content}}</li>
-  {% endfor %}
-</ul>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+</head>
+<body class="bg-light">
+
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-md-8 offset-md-2">
+
+        <div class="card">
+          <div class="card-header shadow-sm bg-white">
+            <h1 class="display-5 text-info"><i class="fas fa-check double"></i> Hall of Thankful </h1>
+        </div>
+
+
+          <div class="card-body">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <form action="{% url  'insert_saveworld_item' %}" method="post" autocomplete="off">
+                  {% csrf_token %}
+                  <div class= "input-group">
+                    <input type="text" class="form-control" name="content">
+                    <div class="input-group-append text-info">
+                      <span class ="input-group-text bg-white py-0">
+                        <button type="submit" class="btn btn-sm text-info">
+                          <i class=" fa fa-plus-circle fa-lg"></i>
+                      </span>
+                    </div>
+                  </div>
+                </form>
+              </li>
+
+              {% for item in saveworld_list %}
+                <li class="list-group-item">{{item.content}}
+                  <form action="{% url 'delete_saveworld_item' item.id %}" method="post" class="float-right d-inline" >
+                    {% csrf_token %}
+                    <button type="submit" class="btn">
+                      <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                    </button>
+                  </form>
+
+                </li>
+                {% empty %}
+                <li class="list-group-item">
+                  <span class="font-italic"> No one has helped L.A.R.V.I.S. !! </span>
+                </li>
+              {% endfor %}
+            </ul>
+
+
+          </div>
+
+
+          <div class="card-body">
+            <div class="container">
+      <!-- Trigger the modal with a button -->
+              <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Click me!</button>
+              <!-- Modal -->
+              <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title" >That's all folks</h4>
+                    </div>
+
+                    <input type="radio" 
+<!-- ----- -->
+                    <!-- <form action="{% url 'insert_savior' %}" method="post" autocomplete="off">
+                      {% csrf_token %}
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1" name="congratulations">
+                        <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+                        <div class="input-group-append text-info">
+                          <span class ="input-group-text bg-white py-0">
+                            <button type="submit" class="btn btn-sm text-info">
+                              <i class=" fa fa-plus-circle fa-lg"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </form> -->
+
+<!--  -->
+                    <!-- <form action="{% url  'insert_saveworld_item' %}" method="post" autocomplete="off">
+                      {% csrf_token %}
+                      <div class= "input-group">
+                        <input type="text" class="form-control" name="content">
+                        <div class="input-group-append text-info">
+                          <span class ="input-group-text bg-white py-0">
+                            <button type="submit" class="btn btn-sm text-info">
+                              <i class=" fa fa-plus-circle fa-lg"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </form> -->
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>
