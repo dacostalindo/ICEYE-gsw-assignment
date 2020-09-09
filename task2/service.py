@@ -2,7 +2,7 @@ import threading, time, signal
 from datetime import timedelta
 import xkcd as xkcd_class
 
-WAIT_TIME_SECONDS = 3600
+WAIT_TIME_SECONDS = 3600 #1 hr
 MAX_COMICS = 2355
 
 class ProgramKilled(Exception):

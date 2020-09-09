@@ -20,19 +20,20 @@ class  XKCD_SERVICE(object) :
         new_comic_url, new_comic_name = self._get_JSON()
         comics_list = self._get_comiclist()
 
-        if not comics_list :
+        if not comics_list : #no images
             urllib.request.urlretrieve(new_comic_url, new_comic_name)
 
         else:
 
             last_comic_added = comics_list[-1]
-            while last_comic_added == new_comic_name:
+
+            while last_comic_added == new_comic_name: # repeated images to be downloaded
                 new_comic_url, new_comic_name = self._get_JSON()
 
-            if len(comics_list) == 1:
+            if len(comics_list) == 1: #1 image
                 urllib.request.urlretrieve(new_comic_url, new_comic_name)
 
-            else:
+            else: #2 images
                 comic_removed = random.choice(comics_list)
                 os.remove(comic_removed)
                 urllib.request.urlretrieve(new_comic_url, new_comic_name)
@@ -64,10 +65,3 @@ class  XKCD_SERVICE(object) :
     def _get_random_num_comic(self):
         comic_num = random.randint(1, self.comic_max)
         return comic_num
-
-
-"""
-Do not like this one bit. Find a way to determine the number of available comic
-strips whitout iterating through every url from 0 to n. Maybe binary search
-algorithm
-"""
