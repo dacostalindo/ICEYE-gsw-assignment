@@ -13,6 +13,6 @@ setup(
     packages = setuptools.find_packages(),
     python_requires='>=3.6',
     install_requires = [
-        'python-crontab'
+        'docker-compose', 'pipenv', 'json', 'urllib',
     ]
 )

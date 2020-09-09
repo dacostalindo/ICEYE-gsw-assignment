@@ -20,9 +20,9 @@ def return_coins(coffee_price, eur_inserted):
                 50  : 0,
                 20  : 0,
                 10  : 0,
-                05  : 0,
-                02  : 0,
-                01  : 0
+                5  : 0,
+                2  : 0,
+                1  : 0
             }
 
             change = eur_inserted -  coffee_price
@@ -33,41 +33,6 @@ def return_coins(coffee_price, eur_inserted):
                     number_coins = change // coin
                     change_dict[coin] = number_coins
                     change = change - coin * number_coins
-
-            """
-            Commenting goes here
-
-
-            """
-
-            # if change / 2 >= 1:
-            #     twos = change // 2
-            #     change = change - 2.0*twos
-            #
-            # if change / 1  >= 1 :
-            #     ones = change // 1
-            #     change = change - 1.0*ones
-            #
-            # if change / 0.5 >= 1 :
-            #     decimal50 = change // 0.5
-            #     change = change - 0.5*decimal50
-            #
-            # if change / 0.2 >= 1 :
-            #     decimal20 = change // 0.2
-            #     change = change - 0.2*decimal20
-            #
-            # if change / 0.1 >= 1 :
-            #     decimal10 = change // 0.1
-            #     change = change - 0.1*decimal10
-            #
-            # if change / 0.05 >= 1 :
-            #     decimal5 = change // 0.05
-            #     change = change - 0.05*decimal5
-            #
-            # if change / 0.02 >= 1 :
-            #     decimal2 = change // 0.02
-            #     change = mathchange - 0.02*decimal2
-
 
             if change > 0 :
                 change_dict[1] = 1
